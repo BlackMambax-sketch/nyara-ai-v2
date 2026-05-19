@@ -1,0 +1,498 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background:
+        radial-gradient(circle at top, #0d2145 0%, #071120 60%);
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+/* =========================
+   APP CONTAINER
+========================= */
+
+.app-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+    width: 300px;
+    background: rgba(10,20,40,0.95);
+    border-right: 1px solid rgba(255,255,255,0.08);
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    backdrop-filter: blur(20px);
+    flex-shrink: 0;
+    transition: 0.3s;
+    z-index: 9999;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo {
+    width: 62px;
+    height: 62px;
+    border-radius: 18px;
+    object-fit: cover;
+    box-shadow: 0 0 18px rgba(90,120,255,0.35);
+}
+
+.logo-section h1 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.logo-section p {
+    color: #a0afcf;
+    margin-top: 4px;
+    font-size: 14px;
+}
+
+/* =========================
+   NEW CHAT BUTTON
+========================= */
+
+.new-chat-btn {
+    height: 58px;
+    border: none;
+    border-radius: 18px;
+    background: linear-gradient(
+        135deg,
+        #4f7cff,
+        #7560ff
+    );
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.new-chat-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 24px rgba(100,120,255,0.5);
+}
+
+/* =========================
+   HISTORY
+========================= */
+
+.chat-history {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.history-item {
+    padding: 16px 18px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.05);
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 15px;
+    color: #d8e1ff;
+    word-break: break-word;
+    min-height: 54px;
+    display: flex;
+    align-items: center;
+}
+
+.history-item:hover {
+    background: linear-gradient(
+        135deg,
+        #4f7cff,
+        #7560ff
+    );
+}
+
+/* =========================
+   CHAT AREA
+========================= */
+
+.chat-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* =========================
+   TOPBAR
+========================= */
+
+.topbar {
+    height: 88px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 0 24px;
+    background: rgba(5,15,30,0.45);
+    backdrop-filter: blur(18px);
+    flex-shrink: 0;
+}
+
+/* =========================
+   MENU BUTTON
+========================= */
+
+.menu-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    border: none;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.08);
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 99999;
+}
+
+/* =========================
+   TOPBAR LEFT
+========================= */
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* =========================
+   AVATAR
+========================= */
+
+.avatar {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 16px rgba(100,120,255,0.35);
+}
+
+.topbar h2 {
+    font-size: 22px;
+}
+
+.topbar span {
+    color: #6df7a7;
+    font-size: 14px;
+}
+
+/* =========================
+   CHAT BOX
+========================= */
+
+.chat-box {
+    flex: 1;
+    overflow-y: auto;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+}
+
+/* =========================
+   WELCOME
+========================= */
+
+.welcome-box {
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.welcome-avatar {
+    width: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 24px;
+    box-shadow: 0 0 30px rgba(100,120,255,0.4);
+}
+
+.welcome-box h2 {
+    font-size: 68px;
+    margin-bottom: 14px;
+}
+
+.welcome-box p {
+    font-size: 22px;
+    color: #d3ddff;
+}
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+    max-width: 75%;
+    padding: 20px 24px;
+    border-radius: 22px;
+    margin-bottom: 8px;
+    font-size: 17px;
+    line-height: 1.9;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    animation: fadeIn 0.2s ease;
+}
+
+.user {
+    align-self: flex-end;
+    background: linear-gradient(
+        135deg,
+        #5B6CFF,
+        #8B5CFF
+    );
+    color: white;
+    border-bottom-right-radius: 8px;
+    box-shadow: 0 0 25px rgba(91,108,255,0.35);
+}
+
+.bot {
+    align-self: flex-start;
+    background: rgba(255,255,255,0.10);
+    backdrop-filter: blur(12px);
+    color: white;
+    border-bottom-left-radius: 8px;
+}
+
+/* =========================
+   INPUT AREA
+========================= */
+
+.input-container {
+    position: sticky;
+    bottom: 0;
+    padding: 24px 30px;
+    background: linear-gradient(
+        to top,
+        rgba(7,17,32,1),
+        rgba(7,17,32,0.7),
+        transparent
+    );
+    flex-shrink: 0;
+}
+
+/* =========================
+   INPUT WRAPPER
+========================= */
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 999px;
+    padding: 10px 14px;
+    backdrop-filter: blur(16px);
+}
+
+/* =========================
+   INPUT
+========================= */
+
+.input-wrapper input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 17px;
+    padding-left: 18px;
+}
+
+.input-wrapper input::placeholder {
+    color: rgba(255,255,255,0.4);
+}
+
+/* =========================
+   SEND BUTTON
+========================= */
+
+.input-wrapper button {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: white;
+    background: linear-gradient(
+        135deg,
+        #5d7cff,
+        #7a63ff
+    );
+    box-shadow: 0 0 24px rgba(100,120,255,0.35);
+    transition: 0.2s;
+    flex-shrink: 0;
+}
+
+.input-wrapper button:hover {
+    transform: scale(1.05);
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.25s;
+    z-index: 90;
+}
+
+.overlay-show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.15);
+    border-radius: 999px;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -320px;
+        width: 280px;
+        height: 100vh;
+        overflow-y: auto;
+    }
+
+    .sidebar-open {
+        left: 0;
+    }
+
+    .menu-btn {
+        display: flex;
+    }
+
+    .chat-area {
+        width: 100vw;
+        margin-left: 0;
+    }
+
+    .topbar {
+        padding: 16px;
+    }
+
+    .avatar {
+        width: 48px;
+        height: 48px;
+    }
+
+    .topbar h2 {
+        font-size: 20px;
+    }
+
+    .chat-box {
+        padding: 20px 18px 140px;
+    }
+
+    .message {
+        max-width: 92%;
+        font-size: 15px;
+        padding: 18px 20px;
+    }
+
+    .welcome-box {
+        margin-top: 90px;
+    }
+
+    .welcome-avatar {
+        width: 140px;
+    }
+
+    .welcome-box h2 {
+        font-size: 52px;
+    }
+
+    .welcome-box p {
+        font-size: 18px;
+    }
+
+    .input-container {
+        padding: 16px;
+    }
+
+    .input-wrapper {
+        height: 68px;
+        padding: 8px 10px;
+    }
+
+    .input-wrapper input {
+        font-size: 16px;
+    }
+
+    .input-wrapper button {
+        width: 52px;
+        height: 52px;
+    }
+}

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Nyara</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <aside class="sidebar">
+
+        <!-- LOGO -->
+
+        <div class="logo-section">
+
+            <img
+                src="/static/nyara_icon.png"
+                class="logo"
+            >
+
+            <div>
+
+                <h1>Nyara</h1>
+
+                <p>
+                    Your cozy AI companion
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- NEW CHAT -->
+
+        <button
+            class="new-chat-btn"
+            onclick="newChat()"
+        >
+            + New Chat
+        </button>
+
+        <!-- HISTORY -->
+
+        <div
+            id="chat-history"
+            class="chat-history"
+        ></div>
+
+    </aside>
+
+    <!-- =========================
+         CHAT AREA
+    ========================== -->
+
+    <main class="chat-area">
+
+        <!-- =========================
+             TOPBAR
+        ========================== -->
+
+        <div class="topbar">
+
+            <!-- HAMBURGER -->
+
+            <button
+                class="menu-btn"
+                onclick="toggleSidebar()"
+            >
+                ☰
+            </button>
+
+            <!-- PROFILE -->
+
+            <div class="topbar-left">
+
+                <img
+                    src="/static/nyara_avatar.png"
+                    class="avatar"
+                >
+
+                <div>
+
+                    <h2>Nyara</h2>
+
+                    <span>
+                        Online
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- =========================
+             CHAT BOX
+        ========================== -->
+
+        <div
+            id="chat-box"
+            class="chat-box"
+        >
+
+            <!-- WELCOME -->
+
+            <div class="welcome-box">
+
+                <img
+                    src="/static/nyara_avatar.png"
+                    class="welcome-avatar"
+                >
+
+                <h2>Haii! 👋</h2>
+
+                <p>
+                    Aku Nyara, AI companion kamu ✨
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- =========================
+             INPUT
+        ========================== -->
+
+        <div class="input-container">
+
+            <div class="input-wrapper">
+
+                <input
+                    type="text"
+                    id="message-input"
+                    placeholder="Tulis pesan..."
+                    onkeydown="handleKey(event)"
+                >
+
+                <button onclick="sendMessage()">
+                    ➤
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<!-- =========================
+     OVERLAY
+========================= -->
+
+<div
+    id="overlay"
+    class="overlay"
+    onclick="closeSidebar()"
+></div>
+
+<!-- =========================
+     SCRIPT
+========================= -->
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>
